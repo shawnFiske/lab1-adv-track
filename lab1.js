@@ -37,7 +37,7 @@ function assert(expression, failureMessage) {
  An assertion is something we expect to be true about the state of the
  program at the point where the assertion is made.
 
- Remember, state is all the variables that we"ve declared and their current
+ Remember, state is all the variables that we've declared and their current
  values.
 
  Here are some examples for how to use the assert method:
@@ -71,7 +71,7 @@ var sentence2 = "Come over here so you can scratch my belly.";
 /*
  TODO: 20 points
  Your goal is to replace the words in the above sentences with "chirp" The
- assertions at the end of this section should pass when you"re done.  Use
+ assertions at the end of this section should pass when you're done.  Use
  **two** different kinds of loops to implement this. (10 points each.)
  HINT: the "split" method on String will be useful.
 */
