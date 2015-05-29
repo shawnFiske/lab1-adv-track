@@ -19,12 +19,12 @@
  Instructions for turning this lab in are in the assignment description in
  Canvas.
 
- I"m happy to answer any questions on Slack.
+ I'm happy to answer any questions on Slack.
 
 */
 
 /* ----------------- Helper ------------------------------------------------
- We"ve implemented a function that will help you sanity-check your code.
+ We've implemented a function that will help you sanity-check your code.
 */
 
 function assert(expression, failureMessage) {
@@ -62,7 +62,7 @@ assert(zooHasParking, "Sorry no parking available.");
 
 /* ----------------- Meerkats -------------------------------------------------
  Meerkats make a sort of chirping noise (according to my 30 seconds of
- research).  We"re going to translate two sentences into meerkat speech.
+ research).  We're going to translate two sentences into meerkat speech.
 */
 
 var sentence1 = "More food please.";
@@ -104,7 +104,7 @@ assert(sentence2 === "chirp chirp chirp chirp chirp chirp chirp chirp chirp.",
   "sentence 2 should have 9 chirps");
 
 /* ----------------- Favorite Animals ----------------------------------------
- The zoo is closing in 20 minutes. You still haven"t seen your four favorite
+ The zoo is closing in 20 minutes. You still haven't seen your four favorite
  animals. You only have time for one. Use Math.random() to pick which animal
  to see next.
  Hint: read the Math.random description on MDN.
@@ -126,7 +126,7 @@ nextAnimal = favoriteAnimals[randomAnimalIndex];
 assert(nextAnimal, "assign something to nextAnimal");
 
 /* ----------------- Hungry Lion ----------------------------------------
- As long as the lion is well-fed, he doesn"t take too much heed of the
+ As long as the lion is well-fed, he doesn't take too much heed of the
  humans that pass through. Unfortunately, the new caretaker is a little
  absent minded.
 
@@ -174,10 +174,10 @@ assert(tooHungryDay < 10, "the lion is too hungry before the end of the array");
 
 /* ----------------- Code Style ----------------------------------------
  TODO: 10 points
- Now, we"re going to use two tools: jshint and jscs, to check our code for
+ Now, we're going to use two tools: jshint and jscs, to check our code for
  best-practices and style consistency.
 
- If you haven"t already, run this command in the terminal (inside of this
+ If you haven't already, run this command in the terminal (inside of this
  directory): npm install
 
  Now, type
