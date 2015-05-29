@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 /* LAB 1: A Trip to Woodland Park Zoo
 
@@ -19,17 +19,17 @@
  Instructions for turning this lab in are in the assignment description in
  Canvas.
 
- I'm happy to answer any questions on Slack.
+ I"m happy to answer any questions on Slack.
 
 */
 
 /* ----------------- Helper ------------------------------------------------
- We've implemented a function that will help you sanity-check your code.
+ We"ve implemented a function that will help you sanity-check your code.
 */
 
 function assert(expression, failureMessage) {
   if (!expression) {
-    console.log('assertion failure: ', failureMessage);
+    console.log("assertion failure: ", failureMessage);
   }
 }
 
@@ -37,14 +37,14 @@ function assert(expression, failureMessage) {
  An assertion is something we expect to be true about the state of the
  program at the point where the assertion is made.
 
- Remember, state is all the variables that we've declared and their current
+ Remember, state is all the variables that we"ve declared and their current
  values.
 
  Here are some examples for how to use the assert method:
 */
 
 assert(1 === 1);
-assert(1 === 2, 'this is an assertion failure example. 1 === 2');
+assert(1 === 2, "this is an assertion failure example. 1 === 2");
 
 /*------------------Assertions-------------------------------------------------
  TODO: 8 points
@@ -55,58 +55,88 @@ assert(1 === 2, 'this is an assertion failure example. 1 === 2');
 */
 
 //your code goes here
+var zooHasParking = true;
+assert(zooHasParking, "Sorry no parking available.");
+zooHasParking = false;
+assert(zooHasParking, "Sorry no parking available.");
 
 /* ----------------- Meerkats -------------------------------------------------
  Meerkats make a sort of chirping noise (according to my 30 seconds of
- research).  We're going to translate two sentences into meerkat speech.
+ research).  We"re going to translate two sentences into meerkat speech.
 */
 
-var sentence1 = 'More food please.';
-var sentence2 = 'Come over here so you can scratch my belly.';
+var sentence1 = "More food please.";
+var sentence2 = "Come over here so you can scratch my belly.";
 
 /*
  TODO: 20 points
- Your goal is to replace the words in the above sentences with 'chirp' The
- assertions at the end of this section should pass when you're done.  Use
+ Your goal is to replace the words in the above sentences with "chirp" The
+ assertions at the end of this section should pass when you"re done.  Use
  **two** different kinds of loops to implement this. (10 points each.)
- HINT: the 'split' method on String will be useful.
+ HINT: the "split" method on String will be useful.
 */
 
 //your code goes here
+//For Loop
+var sentence1Arr = sentence1.split(" ");
+var chirpSentence = "";
+for (var i = 0; i < sentence1Arr.length; i++) {
+  chirpSentence += (i < sentence1Arr.length - 1)? "chirp " : "chirp.";
+}
 
-assert(sentence1 === 'chirp chirp chirp.', 'sentence 1 should have 3 chirps');
-assert(sentence2 === 'chirp chirp chirp chirp chirp chirp chirp chirp chirp.',
-  'sentence 2 should have 9 chirps');
+sentence1 = chirpSentence;
+
+//While Loop
+var sentence2Arr = sentence2.split(" ");
+chirpSentence = "";
+var j = 0;
+while (j < sentence2Arr.length) {
+  chirpSentence += (j < sentence2Arr.length - 1)? "chirp " : "chirp.";
+  j++;
+}
+
+sentence2 = chirpSentence;
+//console.log(sentence1);
+//console.log(sentence2);
+
+assert(sentence1 === "chirp chirp chirp.", "sentence 1 should have 3 chirps");
+assert(sentence2 === "chirp chirp chirp chirp chirp chirp chirp chirp chirp.",
+  "sentence 2 should have 9 chirps");
 
 /* ----------------- Favorite Animals ----------------------------------------
- The zoo is closing in 20 minutes. You still haven't seen your four favorite
+ The zoo is closing in 20 minutes. You still haven"t seen your four favorite
  animals. You only have time for one. Use Math.random() to pick which animal
  to see next.
  Hint: read the Math.random description on MDN.
 */
 
-var favoriteAnimals = ['elephant', 'penguin', 'eagle', 'camel'];
+var favoriteAnimals = [ "elephant", "penguin", "eagle", "camel" ];
 var nextAnimal;
 
 // TODO: 12 points
 // Assign one of your favorite animals to nextAnimal using Math.random() to pick
 
 // your code goes here
+var randomAnimalIndex = Math.ceil(Math.random() * favoriteAnimals.length - 1);
+nextAnimal = favoriteAnimals[randomAnimalIndex];
 
-assert(nextAnimal, 'assign something to nextAnimal');
+//console.log(randomAnimalIndex);
+//console.log(nextAnimal);
+
+assert(nextAnimal, "assign something to nextAnimal");
 
 /* ----------------- Hungry Lion ----------------------------------------
- As long as the lion is well-fed, he doesn't take too much heed of the
+ As long as the lion is well-fed, he doesn"t take too much heed of the
  humans that pass through. Unfortunately, the new caretaker is a little
  absent minded.
 
- The lion needs 4 meals per day on average to stay happy. You're going to
+ The lion needs 4 meals per day on average to stay happy. You"re going to
  figure out how many days it took before the lion decided to supplement his
  diet with the caretaker.
 */
 
 // number of times the new caretaker fed the lion. one array entry per day
-var mealsPerDay = [5, 4, 3, 6, 2, 4, 3, 4, 5, 1];
+var mealsPerDay = [ 5, 4, 3, 6, 2, 4, 3, 4, 5, 1 ];
 var tooHungryDay;
 
 /*
@@ -119,16 +149,35 @@ var tooHungryDay;
 */
 
 // your code goes here
+var dailyAverage = 0;
+var totalMeals   = 0;
+var targetMeals  = 4;
 
-assert(tooHungryDay, 'remember to assign the answer to tooHungryDay');
-assert(tooHungryDay < 10, 'the lion is too hungry before the end of the array');
+for (var i = 0; i < mealsPerDay.length; i++) {
+  var dayMeals = mealsPerDay[i];
+  totalMeals = totalMeals + dayMeals;
+  dailyAverage = (totalMeals / (i + 1));
+
+  //console.log(i + ": " + dayMeals)
+  //console.log(i + ": " + totalMeals);
+  console.log("Day: " + i + "  Average: " + dailyAverage);
+
+  if ((dailyAverage < targetMeals) && (tooHungryDay === undefined)) {
+    tooHungryDay = i;
+  }
+}
+
+console.log("Too Hungry Day: " + tooHungryDay);
+
+assert(tooHungryDay, "remember to assign the answer to tooHungryDay");
+assert(tooHungryDay < 10, "the lion is too hungry before the end of the array");
 
 /* ----------------- Code Style ----------------------------------------
  TODO: 10 points
- Now, we're going to use two tools: jshint and jscs, to check our code for
+ Now, we"re going to use two tools: jshint and jscs, to check our code for
  best-practices and style consistency.
 
- If you haven't already, run this command in the terminal (inside of this
+ If you haven"t already, run this command in the terminal (inside of this
  directory): npm install
 
  Now, type
